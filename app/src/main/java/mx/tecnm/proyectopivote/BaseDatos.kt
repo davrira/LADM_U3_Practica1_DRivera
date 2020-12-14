@@ -22,6 +22,15 @@ class BaseDatos(
                     ");"
         )//dbExec--tabla->actividades
 
+        db.execSQL(
+                "CREATE TABLE Evidencias(" +
+                        "idEvidencia INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "idActividad INTEGER," +
+                        "Foto BLOB," +
+                        "FOREIGN KEY (idActividad) REFERENCES Actividad (idActividad)"+
+                        ");"
+        )//dbExec--tabla->evidencias
+
     }//onCreate
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

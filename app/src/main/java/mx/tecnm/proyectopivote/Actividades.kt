@@ -25,6 +25,7 @@ class Actividades (descripcionP:String, fechaCapturaP:String, fechaEntregaP:Stri
     1->error al crear base o tabla
     2->Error al insertar
     3->Error al cargar todos
+    4->error al buscar
      */
 
     fun insertar(): Boolean{
@@ -99,5 +100,42 @@ class Actividades (descripcionP:String, fechaCapturaP:String, fechaEntregaP:Stri
         return datos
 
     }//mostrarTodos
+
+    fun buscar(id:String) : Actividades{
+
+        var actividadEncontrada = Actividades("","","")
+        error = -1
+
+        try {
+
+            var base = BaseDatos(puntero, nombreBaseDatos, null, 1)
+            var transaccion = base.readableDatabase
+            var columnas = arrayOf("*")
+            var idBuscar = arrayOf(id)
+
+            var respuesta = transaccion.query("Actividad", columnas, "idActividad = ?", idBuscar, null, null, null, null)
+
+            if (respuesta.moveToFirst()){
+
+                do {
+
+                    actividadEncontrada = Actividades(respuesta.getString(1), respuesta.getString(2), respuesta.getString(3))
+                    actividadEncontrada.id = respuesta.getInt(0)
+
+                }while (respuesta.moveToNext())
+
+            }else{
+                error = 4
+            }
+
+            transaccion.close()
+
+        }catch (e:SQLiteException){
+            error = 1
+        }//try-catch
+
+        return actividadEncontrada
+
+    }//buscar
 
 }//class

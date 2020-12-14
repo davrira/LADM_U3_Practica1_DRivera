@@ -812,6 +812,7 @@ id CTRL
 id EdTeDescripcion
 id EdTeFechaCaptura
 id EdTeFechaEntrega
+id EdTeidBuscar
 id FUNCTION
 id LiViActividades
 id META
@@ -892,6 +893,7 @@ id beginning
 id blocking
 id bottom
 id bounce
+id btnBuscar
 id btnInsertar
 id buttonPanel
 id cache_measures

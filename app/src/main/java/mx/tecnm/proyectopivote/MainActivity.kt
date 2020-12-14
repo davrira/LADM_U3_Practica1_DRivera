@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
             insertar()
         }//insertar
 
+        btnBuscar.setOnClickListener {
+            listaBusqueda(EdTeidBuscar.text.toString())
+        }
+
     }//onCreate
 
 
@@ -76,7 +80,8 @@ class MainActivity : AppCompatActivity() {
             (0..total).forEach{
 
                 var actividadesTmp = data[it]
-                var item = "Descripcion: ${actividadesTmp.descripcion}\n" +
+                var item ="idActividad: ${actividadesTmp.id}\n"+
+                        "Descripcion: ${actividadesTmp.descripcion}\n" +
                         "Fecha entrega: ${actividadesTmp.fechaEntrega}\n" +
                         "Fecha captura: ${actividadesTmp.fechaCaptura}"
 
@@ -92,6 +97,43 @@ class MainActivity : AppCompatActivity() {
         }
 
     }//cargarLista
+
+    fun listaBusqueda(idBuscar:String){
+
+        try {
+
+            var conexion = Actividades("", "", "")
+            conexion.asignarPuntero(this)
+            var data = conexion.buscar(idBuscar)
+
+            var vector = Array<String>(1,{""})
+            listaID.clear()
+
+            if (conexion.error == 4){
+
+                dialogo("Atencion","No se encontro el id")
+                cargarLista()
+
+            }else{
+
+                var actividad = data
+                var item = "idActivdad: ${actividad.id}\n" +
+                        "Descripcion: ${actividad.descripcion}\n" +
+                        "Fecha entrega_ ${actividad.fechaEntrega}\n" +
+                        "Fecha captura: ${actividad.fechaCaptura}"
+
+                vector[0] = item
+
+                listaID.add(actividad.id.toString())
+            }
+
+            LiViActividades.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, vector)
+
+        }catch (e:Exception){
+            dialogo("Atencion", e.message.toString())
+        }
+
+    }//listaBusqueda
 
     fun dialogo(tituloP:String, mensajeP:String){
 

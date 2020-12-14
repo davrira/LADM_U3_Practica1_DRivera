@@ -39,6 +39,21 @@
         android:text="Insertar"
         />
 
+    <EditText
+        android:id="@+id/EdTeidBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Escribe el id a buscar"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="buscar"
+        />
+
     <ListView
         android:id="@+id/LiViActividades"
         android:layout_width="match_parent"
