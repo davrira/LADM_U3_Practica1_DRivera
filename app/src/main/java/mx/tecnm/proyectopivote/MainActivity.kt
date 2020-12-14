@@ -1,7 +1,11 @@
 package mx.tecnm.proyectopivote
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ContextMenu
+import android.view.MenuItem
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -92,11 +96,35 @@ class MainActivity : AppCompatActivity() {
 
             LiViActividades.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, vector)
 
+            LiViActividades.setOnItemClickListener { parent, view, position, id ->
+
+                AlertDialog.Builder(this)
+                    .setTitle("Acciones")
+                    .setMessage("Que desea hacer con la actividad")
+                    .setPositiveButton("Detalles"){d,i->
+                        cargarDetalles(listaID[position])
+                    }
+                    .setNeutralButton("Eliminar"){d,i->
+
+                    }
+                    .show()
+
+            }//LiViActividades
+
+
         }catch (e:Exception){
             dialogo("Atencion-Error", e.message.toString())
         }
 
     }//cargarLista
+
+    fun cargarDetalles(idActividad:String){
+
+        var ventana = Intent(this, MainActivity2::class.java)
+        ventana.putExtra("idActividad", idActividad)
+        startActivity(ventana)
+
+    }
 
     fun listaBusqueda(idBuscar:String){
 
@@ -158,5 +186,32 @@ class MainActivity : AppCompatActivity() {
         EdTeFechaCaptura.setText("")
 
     }//limpiarCampos
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+
+        var inflateDB = menuInflater
+        inflateDB.inflate(R.menu.menuacciones, menu)
+
+    }//onCreateContextMenu
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+
+        try {
+
+            if (idSeleccionado == -1){
+                dialogo("Atencion", "No ha seleccionado un item")
+            }//
+
+        }catch (e:Exception){
+            dialogo("Atencion", e.message.toString())
+        }
+
+        return true
+    }//oncontextItem
 
 }//class

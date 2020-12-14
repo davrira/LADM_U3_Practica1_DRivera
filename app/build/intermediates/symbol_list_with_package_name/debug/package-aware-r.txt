@@ -955,6 +955,8 @@ id image
 id info
 id invisible
 id italic
+id itemAgregar
+id itemDetalles
 id jumpToEnd
 id jumpToStart
 id layout
@@ -1061,6 +1063,9 @@ id uniform
 id up
 id useLogo
 id visible
+id vtnAgregarBtnFotot
+id vtnAgregarImViFotoSeleccionada
+id vtnAgregarTeViIdActivdad
 id withText
 id wrap
 id wrap_content
@@ -1105,6 +1110,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_main2
 layout custom_dialog
 layout notification_action
 layout notification_action_tombstone
@@ -1116,6 +1122,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menuacciones
 mipmap ic_launcher
 mipmap ic_launcher_round
 string abc_action_bar_home_description

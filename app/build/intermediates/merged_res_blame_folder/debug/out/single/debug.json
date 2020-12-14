@@ -16,6 +16,10 @@
         "source": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
+        "merged": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/build/intermediates/res/merged/debug/menu_menuacciones.xml.flat",
+        "source": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/src/main/res/menu/menuacciones.xml"
+    },
+    {
         "merged": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
         "source": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
     },
@@ -30,6 +34,10 @@
     {
         "merged": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/build/intermediates/res/merged/debug/layout_activity_main2.xml.flat",
+        "source": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/src/main/res/layout/activity_main2.xml"
     },
     {
         "merged": "/home/david/AndroidStudioProjects/T3/LADM_U3_Practica1_DRivera/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
